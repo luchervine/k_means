@@ -2,28 +2,33 @@ import java.util.*;
 
 public class K_Means {
     int k;
-    int mat[][];
+    double mat[][];
     int max_iter;
     List<Double> centroid;
     int cmpt; //l'indice du centroid le plus proche
-    Map<Integer, List<Integer>> groupes;
+    Map<Integer, List<Double>> groupes;
     Random rd = new Random();
+    CentrerReduire cr;
 
-    public K_Means(int k, int[][] mat, int max_iter) {
+    public K_Means(int k, double[][] mat, int max_iter) {
         this.k = k;
         this.mat = mat;
         this.max_iter = max_iter;
         this.cmpt = 0;
         this.centroid = new ArrayList<>();
         this.groupes = new HashMap<>();
+
+        this.cr = new CentrerReduire(mat);
     }
-    public K_Means(int[][] mat) {
+    public K_Means(double[][] mat) {
         this.k = 2;
         this.mat = mat;
         this.max_iter = 100;
         this.cmpt = 0;
         this.centroid = new ArrayList<>();
         this.groupes = new HashMap<>();
+
+        this.cr = new CentrerReduire(mat);
     }
 
     public void first_centroid(){
@@ -69,7 +74,7 @@ public class K_Means {
     }
 
     // Methode Pour Calculer la distance entre deux points de données;
-    public double distance(double c, int p){
+    public double distance(double c, double p){
         double dist =0;
 
         dist = Math.sqrt(Math.pow((c - p), 2));
@@ -78,11 +83,11 @@ public class K_Means {
     }
 
     //Methode pour calculer la moyenne d'un cluster
-    public double moyenne(List<Integer> list){
+    public double moyenne(List<Double> list){
         double moy = 0;
         double somme = 0;
 
-        for (int a: list){
+        for (double a: list){
             somme+=a;
         }
         moy = (somme/list.size());

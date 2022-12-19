@@ -2,8 +2,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args){
-        int[][] mat = {{2,7,3},{5,6,4},{8,4,7},{9,11,13}};
-        int[][] ma ={{4},{47},{74},{45}};
+        double[][] mat = {{2,7,3},{5,6,4},{8,4,7},{9,11,13}};
+        double[][] ma ={{4},{47},{74},{45}};
+        double[][] simple_mat = {{2,2,3},{3,1,2},{1,0,3},{2,1,4},{2,1,3}};
 
         /*KMeans kmeans = new KMeans(2, mat);
         kmeans.first_centroid();
@@ -29,5 +30,6 @@ public class Main {
             List current_centroid = k_means.centroid;
         }
         System.out.println("FINAL_GROUP : "+ k_means.groupes.toString()); //Affichage final des clusters
+
     }
 }
