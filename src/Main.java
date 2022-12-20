@@ -10,7 +10,7 @@ public class Main {
         kmeans.first_centroid();
         kmeans.affectation();*/
 
-        /* Constructeur avec 3 paramètres
+        /* Constructeur avec 3 paramètres 
         * int k: le nombre de clusters
         * int[][] mat: la matrice de données
         *int max_iter: Le nombre d'itérations
