@@ -7,12 +7,16 @@ public class Risque {
     double sce_t;
     double sce_a;
     double sce_r;
+    int ddl_t, ddl_a,ddl_r;
 
     public Risque(List<int[]> data) {
         this.data = data;
         this.sce_t = 0;
         this.sce_a = 0;
         this.sce_r = 0;
+        this.ddl_t = 0;
+        this.ddl_a = 0;
+        this.ddl_r = 0;
     }
 
     //SCE_T
@@ -26,6 +30,7 @@ public class Risque {
             somme_N+=data.size();
         }
 
+        this.ddl_t = somme_N-1;
         this.sce_t = somme_y2 - ((Math.pow(somme_T, 2)/somme_N));
         //System.out.println(this.sce_t +" = "+ somme_y2+" - ( "+Math.pow(somme_T, 2)+"/"+somme_N+")");
         System.out.println("SCE_T = "+this.sce_t);
@@ -40,7 +45,8 @@ public class Risque {
             somme_T+=somme(data.get(i));
             somme_N+=data.size();
         }
-        
+
+        this.ddl_a = data.get(0).length-1;
         this.sce_a = somme - (Math.pow(somme_T, 2)/somme_N);
         //System.out.println(this.sce_a +" = "+ somme+" - ( "+Math.pow(somme_T, 2)+"/"+somme_N+")");
         System.out.println("SCE_A = "+this.sce_a);
@@ -49,6 +55,7 @@ public class Risque {
     //SCE_R
     public void calcul_sceR(){
         this.sce_r = this.sce_t - this.sce_a;
+        this.ddl_r = this.ddl_t - this.ddl_a;
         System.out.println("SCE_R = "+this.sce_r);
     }
     
@@ -70,7 +77,7 @@ public class Risque {
         return somme;
     }
 
-    public void affichage(int ddl_t, int ddl_a, int ddl_r){
+    public void affichage(){
         System.err.println(" SV  |   SCE   |  ddl  |   CM    |   F   ");
         System.err.println("_________________________________________");
         System.err.println("  A  |  "+this.sce_a+"  |   "+ddl_a+"   |  "+this.sce_a/ddl_a+"   |   "+(this.sce_a/ddl_a)/(this.sce_r/ddl_r)+"   ");

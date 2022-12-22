@@ -14,6 +14,6 @@ public class Application {
         risque.calcul_sceT();
         risque.calcul_sceA();
         risque.calcul_sceR();
-        risque.affichage(8, 2, 6);
+        risque.affichage();
     }
 }
