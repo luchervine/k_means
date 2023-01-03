@@ -27,7 +27,7 @@ public class Risque {
         for (int i = 0; i < data.size(); i++) {
             somme_y2+=somme2(data.get(i));
             somme_T+=somme(data.get(i));
-            somme_N+=data.size();
+            somme_N+=data.get(i).length;
         }
 
         this.ddl_t = somme_N-1;
@@ -43,7 +43,7 @@ public class Risque {
         for (int i = 0; i < data.size(); i++) {
             somme += Math.pow(somme(data.get(i)),2)/data.get(i).length;
             somme_T+=somme(data.get(i));
-            somme_N+=data.size();
+            somme_N+=data.get(i).length;
         }
 
         this.ddl_a = data.get(0).length-1;
